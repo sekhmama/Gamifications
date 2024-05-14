@@ -1,0 +1,91 @@
+.game-container{
+
+    background-color:var(--color);
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 60px);
+    column-gap: 1px;
+    row-gap: 1px ;
+    border: 1px solid ;
+    border-color: var(--color);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: visible;
+    // min-height: 100vh;
+    // height: auto;
+  top: 14%;
+  left: 40%;
+  position: absolute;
+
+} 
+    
+
+    
+:root {
+  --background-color: #333;
+  --text-color: #fff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  max-width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-adjust{
+  // margin-left: 100px;
+  margin-top: 25%;
+  background-color: green;
+  font-size: 30px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field-adjust{
+  margin-top: 10%;
+  padding-bottom: 10px;
+
+}
+
+.error-msg{
+  font-size: 20px;
+  color: red;
+}
+.error-field{
+  border-color:red;
+  // box-shadow:1px 1px red, 1px 1px red;
+}
+.header{
+  padding-top: 10%;
+  padding-bottom: 10%;
+  text-align: center;
+  font-size: 50px;
+  color: blue;
+  // background-color: black;
+}
+
+.field-title{
+  margin-bottom: 5%;
+  padding-top: 20px;
+  font-size: 30px;
+}
+.text{
+  font-size: 25px;
+}

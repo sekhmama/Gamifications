@@ -1,0 +1,47 @@
+<ng-container *ngIf="!playing">
+    <div class="container">
+        <form [formGroup]="loginForm" (keyup.enter)="onSubmit()">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="header">Chain Reaction</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-Group field-adjust">
+                                <span class="field-title" title="count">Players Count</span>
+                                <input type="number" placeholder="enter 2 to 8"  class="form-control text error-field"   [ngClass]="{'error-field':  loginForm.controls['count'].invalid && (loginForm.controls['count'].touched || loginForm.controls['count'].dirty) }" formControlName="count">
+    
+                                <div  *ngIf="loginForm.controls['count'].invalid && (loginForm.controls['count'].touched || loginForm.controls['count'].dirty)">
+                                    <span class="error-msg" *ngIf="loginForm.controls['count']?.errors?.['required']">Player Count is required</span>
+                                    <span class="error-msg" *ngIf="loginForm.controls['count']?.errors?.['min']">Minimum Player Count is 2</span>
+                                    <span class="error-msg" *ngIf="loginForm.controls['count']?.errors?.['max']">Maximun Player Count is 8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="btn btn-primary btn-adjust" (click)="onSubmit()">Play</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="playing">
+    <!-- <button class="btn" type="button" (click)="item = 'jump' ? item = 'fall' :item ='jump'"></button>
+    <div class="ball" [@bounce]="item" ></div> -->
+    <div class="game-container" [style.--columns]="columns" [style.--color]="color">
+    <!-- <div class="ball" [@bounce]="item" ></div> -->
+    <ng-container *ngFor="let it1 of [].constructor(boxes); let i = index">
+        <app-box [untouch]="untouch" [m]="columns" [n]="rows" [top]="onTop(i)"
+        [bottom]="onBottom(i)"[left]="onLeft(i)"[right]="onRight(i)" 
+        [param]="i" (exit)="onUpdate(i,$event)" [player]="player" [colors]="colors"></app-box>
+    </ng-container>
+    </div>
+</ng-container>

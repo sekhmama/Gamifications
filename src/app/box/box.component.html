@@ -1,0 +1,9 @@
+<div class="box" (click)="onAdd()" >
+    <!-- <ng-container *ngFor="let item of [].constructor(value); let i = index">
+        <div [id]="'ball'+i" [style.--color]="color"></div> -->
+        <div [@split0]="{value: value, params: { opac0: opacity0 }}"  [id]="'ball'+0"  *ngIf="value>=1" [style.--color]="color" ></div>
+        <div [@split1]="{value: value, params: { opac1: opacity1 }}"  [id]="'ball'+1"  *ngIf="value>=2" [style.--color]="color" ></div>
+        <div [@split2]="{value: value, params: { opac2: opacity2 }}"  [id]="'ball'+2"  *ngIf="value>=3" [style.--color]="color" ></div>
+        <div [@split3]="{value: value, params: { opac3: opacity3 }}"  [id]="'ball'+3"  *ngIf="value>=4" [style.--color]="color" ></div>
+    <!-- </ng-container> -->
+</div>

@@ -1,0 +1,123 @@
+.box{
+  // padding: 30% 30% 30% 30%;
+  // background-color: var(--color1);
+  // height: 60px;
+  // // display: flex;
+  // display: grid;
+  // justify-content: center;
+  // align-items: center;
+  // grid-template-columns: 20px 20px;
+  // column-gap: 0;
+  // row-gap: 0;
+
+
+  background-color: #060505;
+  height: 60px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 20px 20px;
+  column-gap: 0;
+  row-gap: 0;
+  // border-left: 1px solid #fff;
+  // border-top: 1px solid #fff;
+  // box-sizing: content-box;
+  // position: relative;
+  // border-collapse: collapse;
+  // overflow: visible;
+  // @if var(--x) == 0 {
+  //   border-left: 1px solid #fff;
+  // }
+  // @if var(--y) == 0 {
+  //   border-top: 1px solid #fff;
+  // }
+ 
+
+}
+
+@for $i from 0 through 3 {
+  #ball#{$i} {
+    
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background-color: var(--color);
+    border-radius: 50%;
+    box-shadow: insert 0 -10px 20px gray;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    background-image: radial-gradient(farthest-corner at 50% 50%, var(--color), black);
+    @if $i == 0 {
+      transform: translate(3px, 2px);
+    }
+    @else if $i == 1 {
+      transform: translate(-1px, 10px);
+    }
+    @else if $i == 2 {
+      transform: translate(4px, -12px);
+    }
+    @else if $i == 3 {
+      transform: translate(-4px, -12px);
+    }
+  }
+}
+
+
+// #ball0.leave {
+//   animation: split0 0.25s ease-out;
+// }
+// #ball1.leave {
+//   animation: split1 0.25s ease-out;
+// }
+// #ball2.leave {
+//   animation: split2 0.25s ease-out;
+// }
+// #ball3.leave {
+//   animation: split3 0.25s ease-out;
+// }
+
+
+// @keyframes split0 {
+//   0%{
+//     transform: translate(6px, 2px);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateY(-40px)translateX(10px);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes split1 {
+//   0%{
+//     transform: translate(-1px, 10px);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateY(10px)translateX(40px);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes split2 {
+//   0%{
+//     transform: translate(4px, -12px);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateY(-20px)translateX(-40px);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes split3 {
+//   0%{
+//     transform: translate(-4px, -12px);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateY(40px)translateX(-10px);
+//     opacity: 1;
+//   }
+// }
