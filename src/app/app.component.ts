@@ -87,9 +87,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(){
+    let audio = new Audio();
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
     } else {
+      audio.src = "assets/mixkit-video-game-win-2016.wav";
+      audio.volume = 0.5;
+      audio.load();
+      audio.play();
       this.playing = true;
       this.gamers = this.gamers1.slice(0,this.loginForm.value['count']? this.loginForm.value['count']:2);
       this.colors = this.colors1.slice(0,this.loginForm.value['count']? this.loginForm.value['count']:2);

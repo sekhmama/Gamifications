@@ -1,4 +1,4 @@
-<div class="box" (click)="onAdd()" >
+<div class="box" (click)="onAdd();playAudio()" >
     <!-- <ng-container *ngFor="let item of [].constructor(value); let i = index">
         <div [id]="'ball'+i" [style.--color]="color"></div> -->
         <div [@split0]="{value: value, params: { opac0: opacity0 }}"  [id]="'ball'+0"  *ngIf="value>=1" [style.--color]="color" ></div>
