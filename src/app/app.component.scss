@@ -1,25 +1,38 @@
 .game-container{
 
-    background-color:var(--color);
-    display: grid;
-    grid-template-columns: repeat(var(--columns), 60px);
-    column-gap: 1px;
-    row-gap: 1px ;
-    border: 1px solid ;
-    border-color: var(--color);
-    justify-content: center;
-    align-items: center;
-    color: white;
-    overflow: visible;
-    // min-height: 100vh;
-    // height: auto;
-  top: 14%;
-  left: 40%;
-  position: absolute;
+  background-color:var(--color);
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 60px);
+  column-gap: 1px;
+  row-gap: 1px ;
+  border: 1px solid ;
+  border-color: var(--color);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  overflow: visible;
+  // min-height: 100vh;
+  // height: auto;
+top: 14%;
+left: 40%;
+position: absolute;
 
 } 
-    
 
+
+@media only screen and (max-height: 900px) {
+  .game-container{
+    top: 2%;
+  } 
+}
+
+    
+@media only screen and (max-width: 800px) {
+  .game-container{
+    top: 3%;
+    left: 3%;
+  } 
+}
     
 :root {
   --background-color: #333;

@@ -147,6 +147,8 @@ onAdd(){
   if(this.value === this.l-1){
     this.val=this.val.slice(0,-1)+'4';
     this.color = this.colors[this.player];
+    this.playAudio("../../assets/shooting-sound-fx-159024.mp3");
+    window.navigator.vibrate(200); //vibrate
     setTimeout(()=>{
       this.val = this.val+'0';
       this.val = '*'+'m'+this.val.slice(2,-1)+'0';
@@ -155,7 +157,7 @@ onAdd(){
   } else {
     this.color = this.colors[this.player];
     this.val = this.player.toString()+'m'+this.val.slice(2,-1)+((this.value+1).toString());
-    
+    window.navigator.vibrate(50); //vibrate
   }
     setTimeout(()=>{
     this.exit.emit(this.val);
@@ -166,6 +168,7 @@ onChain(){
   if(this.value === this.l-1){
     this.val=this.val.slice(0,-1)+'4';
     this.color = this.colors[this.player];
+    window.navigator.vibrate(200); //vibrate
     setTimeout(()=>{
       this.val = this.val+'0';
       this.val = '*'+'a'+this.val.slice(2,-1)+'0';
@@ -182,5 +185,15 @@ get prevPlayer(){
   if (this.val[0] === '*')
     return '*';
   return parseInt(this.val[0],10);
+}
+
+
+
+playAudio(src: string){
+  let audio = new Audio();
+  audio.src = "../../assets/shooting-sound-fx-159024.mp3";
+  // audio.volume = 0.5;
+  audio.load();
+  audio.play();
 }
 }

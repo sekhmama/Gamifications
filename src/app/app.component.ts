@@ -20,13 +20,14 @@ export class AppComponent implements OnInit, OnDestroy {
   dummy2: any = 0;
   timeoutId: any;
   clickCount: number =0;
+  winner= '';
   // touchDebouncer = new Subject<string>();
 
   constructor(private cf: ChangeDetectorRef) { }
   dummy = 0;
   playerLimit = 0;
   loginForm = new FormGroup({
-    count: new FormControl({ value: 0, disabled: false }, [
+    count: new FormControl({ value: 2, disabled: false }, [
       Validators.required, Validators.min(2), Validators.max(8)
     ]),
   });
@@ -97,6 +98,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.color = this.colors[0];
       this.untouch = false;
       this.clickCount = 0;
+      window.navigator.vibrate([200, 100, 200]);
       this.cf.detectChanges();
     }
   }
@@ -210,10 +212,15 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     // after optimising change code to check for each auto change
     if(dupGamers.length === 1){
-      alert(`Congratulations! ${dupColors[0]} has won the game`);
-      this.playing = false;
-      this.cf.detectChanges();
-      return null;
+      window.navigator.vibrate([100, 50, 100, 50, 200]);
+      this.winner = dupColors[0];
+      setTimeout(async() => {
+        alert(`Congratulations! ${this.winner} has won the game`);
+        this.playing = false;
+        this.winner = '';
+        this.cf.detectChanges();
+        return null;
+      },500);
     } else{
       this.gamers = dupGamers;
       this.colors = dupColors;
